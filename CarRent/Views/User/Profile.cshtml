@@ -1,0 +1,63 @@
+@model CarRent.Models.UserProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2>@ViewData["Title"]</h2>
+                </div>
+                <div class="card-body">
+                    <div>
+                        <h3>User Information</h3>
+                        <p><strong>First Name:</strong> @Model.FirstName</p>
+                        <p><strong>Last Name:</strong> @Model.LastName</p>
+                        <p><strong>Phone Number:</strong> @Model.PhoneNumber</p>
+                        <p><strong>Email:</strong> @Model.Email</p>
+                    </div>
+
+                    <div class="mt-4">
+                        <h3>Favorite Cars</h3>
+                        <ul class="list-group">
+                            @foreach (var car in Model.FavoriteCars)
+                            {
+                                <li class="list-group-item">
+                                    <a asp-controller="Cars" asp-action="CarDetails" asp-route-id="@car.Id">@car.Brand - @car.Year</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="mt-4">
+                        <h3>Rented Cars</h3>
+                        <ul class="list-group">
+                            @foreach (var car in Model.RentedCars)
+                            {
+                                <li class="list-group-item">
+                                    <a asp-controller="Cars" asp-action="CarDetails" asp-route-id="@car.Car.Id">@car.Car.Brand - @car.Car.Year</a>
+                                    <p>@car.RentDate.ToShortDateString() - paid: @car.PricePaid $</p>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+
+                    <div class="mt-4">
+                        <h3>My Cars</h3>
+                        <ul class="list-group">
+                            @foreach (var car in Model.MyCars)
+                            {
+                                <li class="list-group-item">
+                                    <a asp-controller="Cars" asp-action="CarDetails" asp-route-id="@car.Id">@car.Brand - @car.Year</a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

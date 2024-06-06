@@ -1,0 +1,68 @@
+@model CarRent.Models.Car
+
+@{
+    ViewData["Title"] = "Add Car";
+}
+
+<h1>Add Car</h1>
+
+<form asp-action="AddCar" method="post">
+    <div class="form-group">
+        <label asp-for="Brand" class="control-label"></label>
+        <input asp-for="Brand" class="form-control" />
+        <span asp-validation-for="Brand" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Year" class="control-label"></label>
+        <input asp-for="Year" class="form-control" />
+        <span asp-validation-for="Year" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="PriceDay" class="control-label">Price Day</label>
+        <input asp-for="PriceDay" class="form-control" />
+        <span asp-validation-for="PriceDay" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Capacity" class="control-label"></label>
+        <input asp-for="Capacity" class="form-control" />
+        <span asp-validation-for="Capacity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Transmision" class="control-label"></label>
+        <input asp-for="Transmision" class="form-control" />
+        <span asp-validation-for="Transmision" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="City" class="control-label"></label>
+        <input asp-for="City" class="form-control" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TankCapacity" class="control-label"> Tank Capacity</label>
+        <input asp-for="TankCapacity" class="form-control" />
+        <span asp-validation-for="TankCapacity" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Pic1" class="control-label">First Picture</label>
+        <input asp-for="Pic1" class="form-control" />
+        <span asp-validation-for="Pic1" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Pic2" class="control-label">Second Picture</label>
+        <input asp-for="Pic2" class="form-control" />
+        <span asp-validation-for="Pic2" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Pic3" class="control-label">Third Picture</label>
+        <input asp-for="Pic3" class="form-control" />
+        <span asp-validation-for="Pic3" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Add Car" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

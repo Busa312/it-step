@@ -1,0 +1,48 @@
+@model CarRent.Models.Car
+
+@{
+    ViewData["Title"] = "Car Details";
+}
+
+<h1>Car Details</h1>
+
+<div class="car-details">
+    <h2>@Model.Brand (@Model.Year)</h2>
+    <p><strong>Price per Day:</strong> @Model.PriceDay</p>
+    <p><strong>Capacity:</strong> @Model.Capacity</p>
+    <p><strong>Transmission:</strong> @Model.Transmision</p>
+    <p><strong>City:</strong> @Model.City</p>
+    <p><strong>Tank Capacity:</strong> @Model.TankCapacity</p>
+    <p><strong>Phone Number:</strong> @Model.PhoneNumber</p>
+    
+    <div class="car-images">
+        <img src="@Model.Pic1" alt="Car Image 1" class="car-image" />
+        <img src="@Model.Pic2" alt="Car Image 2" class="car-image" />
+        <img src="@Model.Pic3" alt="Car Image 3" class="car-image" />
+    </div>
+    <form method="post" asp-action="RentCar">
+        <input type="hidden" name="CarId" value="@Model.Id" />
+    
+        <label for="rentalDays">Rental Days:</label>
+        <input type="number" id="rentalDays" name="RentalDays" min="1" required /> <br />
+    
+        <button type="submit" class="btn btn-primary">Rent</button>
+    </form>
+</div>
+
+<style>
+    .car-details {
+        max-width: 800px;
+        margin: auto;
+    }
+    .car-images {
+        display: flex;
+        justify-content: space-between;
+    }
+    .car-image {
+        max-width: 250px;
+        height: auto;
+    }
+</style>
+
+
